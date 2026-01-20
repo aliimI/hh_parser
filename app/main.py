@@ -1,4 +1,6 @@
 import asyncio
+import logging
+from app.log_config import setup_logging
 
 from app.db import async_session_maker
 from app.hh_client import HHClient
@@ -6,6 +8,9 @@ from app.tg_client import TGClient
 from app.fetcher import Fetcher
 from app.storage import Storage
 
+setup_logging(logging.INFO)
+
+log = logging.getLogger(__name__)
 
 def format_message(v) -> str:
     parts = [

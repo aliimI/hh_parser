@@ -1,7 +1,7 @@
 from sqlalchemy import String, Integer, DateTime, Boolean, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 from datetime import datetime, timezone
-from db import Base
+from app.db import Base
 
 class Vacancy(Base):
     __tablename__ = "vacancies"

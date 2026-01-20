@@ -1,8 +1,12 @@
+import logging
+
 from sqlalchemy import select, update
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from models import Vacancy
+from app.models import Vacancy
+
+log = logging.getLogger(__name__)
 
 class Storage:
     def __init__(self, session: AsyncSession) -> None:
@@ -21,6 +25,7 @@ class Storage:
         self.session.add(row)
         try:
             await self.session.commit()
+            log.info("Saved vacancy hh_id=%s", row.hh_id)
             return True
         except IntegrityError:
             await self.session.rollback()

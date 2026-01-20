@@ -1,8 +1,8 @@
-from hh_client import HHClient
+from app.hh_client import HHClient
 
 def build_queries() -> list[str]:
 
-    from config import settings
+    from app.config import settings
     return settings.KEYWORDS
 
 

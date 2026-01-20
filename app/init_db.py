@@ -1,5 +1,5 @@
 import asyncio
-from db import engine, Base
+from app.db import engine, Base
 import models
 
 async def main():
